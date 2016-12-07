@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Message Aggregator",
+    "id": "com.camunda.example.MessageAggregator",
+    "appliesTo": [
+      "bpmn:ServiceTask"
+    ],
+    "properties": [
+      {
+        "label": "Correlation Expression",
+        "type": "Text",
+        "description": "Mandatory Expression which evaluates the correlation key to use for aggregation. The Exchange which has the same correlation key is aggregated together. If the correlation key could not be evaluated an Exception is thrown. You can disable this by using the ignoreBadCorrelationKeys option.",
+        "binding": {
+          "type": "camunda:property",
+          "name": "correlationExpression"
+        }
+      },
+      {
+        "label": "Aggregation Strategy",
+        "type": "Text",
+        "description": "Mandatory AggregationStrategy which is used to merge the incoming Exchange with the existing already merged exchanges. At first call the oldExchange parameter is null. On subsequent invocations the oldExchange contains the merged exchanges and newExchange is of course the new incoming Exchange. From Camel 2.9.2 onwards the strategy can also be a TimeoutAwareAggregationStrategy implementation, supporting the timeout callback, see further below for more details. From Camel 2.16 onwards the strategy can also be a PreCompletionAwareAggregationStrategy implementation which then runs the completion check in pre-completion mode. See further below for more details.",
+        "binding": {
+          "type": "camunda:property",
+          "name": "aggregationStrategy"
+        }
+      },
+      {
+        "label": "Strategy Method Allow Null",
+        "type": "Boolean",
+        "description": "If this option is false then the aggregate method is not used for the very first splitted message. If this option is true then null values is used as the oldExchange (for the very first message splitted), when using POJOs as the AggregationStrategy. See the Aggregate page for more details.",
+        "binding": {
+          "type": "camunda:property",
+          "name": "strategyMethodAllowNull"
+        }
+      },
+      {
+        "label": "Parallel Processing",
+        "type": "Boolean",
+        "description": "If enabled then processing the sub-messages occurs concurrently. Note the caller thread will still wait until all sub-messages has been fully processed, before it continues.",
+        "binding": {
+          "type": "camunda:property",
+          "name": "parallelProcessing"
+        }
+      }
+    ]
+  }
+]

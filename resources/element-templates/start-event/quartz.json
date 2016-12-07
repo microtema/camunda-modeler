@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Message Type (Quartz)",
+    "id": "com.camunda.example.MessageTypeStartTimerEvent",
+    "appliesTo": [
+      "bpmn:StartEvent"
+    ],
+    "properties": [
+      {
+        "label": "Component Type",
+        "type": "Hidden",
+        "value": "timer:",
+        "binding": {
+          "type": "camunda:property",
+          "name": "componentType"
+        }
+      },
+      {
+        "label": "Group Name",
+        "type": "Text",
+        "description": "Set Group Name",
+        "binding": {
+          "type": "camunda:property",
+          "name": "groupName"
+        }
+      },
+      {
+        "label": "Timer Name",
+        "type": "Text",
+        "description": "Set Timer Name",
+        "binding": {
+          "type": "camunda:property",
+          "name": "timerName"
+        }
+      },
+      {
+        "label": "Cron Expression",
+        "type": "Text",
+        "description": "Set Cron Expression",
+        "binding": {
+          "type": "camunda:property",
+          "name": "cron"
+        }
+      }
+    ]
+  }
+]

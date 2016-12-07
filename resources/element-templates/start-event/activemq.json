@@ -1,0 +1,48 @@
+[
+  {
+    "name": "Message Type (ActiveMQ)",
+    "id": "com.camunda.example.MessageTypeStartActiveMQEvent",
+    "appliesTo": [
+      "bpmn:StartEvent",
+      "bpmn:EndEvent"
+    ],
+    "properties": [
+      {
+        "label": "Component Type",
+        "type": "Hidden",
+        "value": "activemq:",
+        "binding": {
+          "type": "camunda:property",
+          "name": "componentType"
+        }
+      },
+      {
+        "label": "Partner ID",
+        "type": "Text",
+        "description": "Set Partner ID",
+        "binding": {
+          "type": "camunda:property",
+          "name": "partnerId"
+        }
+      },
+      {
+        "label": "Endpoint ID",
+        "type": "Text",
+        "description": "Set Endpoint ID",
+        "binding": {
+          "type": "camunda:property",
+          "name": "endpointId"
+        }
+      },
+      {
+        "label": "Message ID",
+        "type": "Text",
+        "description": "Set Message ID",
+        "binding": {
+          "type": "camunda:property",
+          "name": "messageId"
+        }
+      }
+    ]
+  }
+]

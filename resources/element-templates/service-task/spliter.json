@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Message Splitter",
+    "id": "com.camunda.example.MessageSpliter",
+    "appliesTo": [
+      "bpmn:ServiceTask"
+    ],
+    "properties": [
+      {
+        "label": "Strategy Ref",
+        "type": "Text",
+        "description": "Refers to an AggregationStrategy to be used to assemble the replies from the sub-messages, into a single outgoing message from the Splitter. See the defaults described below in What the Splitter returns. From Camel 2.12 onwards you can also use a POJO as the AggregationStrategy, see the Aggregate page for more details. If an exception is thrown from the aggregate method in the AggregationStrategy, then by default, that exception is not handled by the error handler. The error handler can be enabled to react if enabling the shareUnitOfWork option.",
+        "binding": {
+          "type": "camunda:property",
+          "name": "strategyRef"
+        }
+      },
+      {
+        "label": "Strategy Method Name",
+        "type": "Text",
+        "description": "This option can be used to explicit declare the method name to use, when using POJOs as the AggregationStrategy. See the Aggregate page for more details.",
+        "binding": {
+          "type": "camunda:property",
+          "name": "strategyMethodName"
+        }
+      },
+      {
+        "label": "Strategy Method Allow Null",
+        "type": "Boolean",
+        "description": "If this option is false then the aggregate method is not used for the very first splitted message. If this option is true then null values is used as the oldExchange (for the very first message splitted), when using POJOs as the AggregationStrategy. See the Aggregate page for more details.",
+        "binding": {
+          "type": "camunda:property",
+          "name": "strategyMethodAllowNull"
+        }
+      },
+      {
+        "label": "Parallel Processing",
+        "type": "Boolean",
+        "description": "If enabled then processing the sub-messages occurs concurrently. Note the caller thread will still wait until all sub-messages has been fully processed, before it continues.",
+        "binding": {
+          "type": "camunda:property",
+          "name": "parallelProcessing"
+        }
+      }
+    ]
+  }
+]
