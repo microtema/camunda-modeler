@@ -1,6 +1,6 @@
 [
   {
-    "name": "Message Type (ActiveMQ)",
+    "name": "Message Queue",
     "id": "com.camunda.example.MessageTypeStartActiveMQEvent",
     "appliesTo": [
       "bpmn:StartEvent",
@@ -13,34 +13,50 @@
         "value": "activemq:",
         "binding": {
           "type": "camunda:property",
-          "name": "componentType"
+          "name": "COMPONENT"
         }
       },
       {
         "label": "Partner ID",
-        "type": "Text",
+        "type": "Dropdown",
         "description": "Set Partner ID",
+        "choices":[{"name": "SELF" ,"value": "SELF"}],
+        "value":"SELF",
         "binding": {
           "type": "camunda:property",
-          "name": "partnerId"
+          "name": "PARTNER_ID"
         }
       },
       {
         "label": "Endpoint ID",
-        "type": "Text",
+        "type": "Dropdown",
         "description": "Set Endpoint ID",
+        "choices":[{"name": "HULK-TDH" ,"value": "HULK-TDH"}],
+        "value":"HULK-TDH",
         "binding": {
           "type": "camunda:property",
-          "name": "endpointId"
+          "name": "ENDPOINT_ID"
         }
       },
       {
         "label": "Message ID",
-        "type": "Text",
+        "type": "Dropdown",
         "description": "Set Message ID",
+        "choices":[{"name": "appconfig" ,"value": "appconfig"},{"name": "moduleconfig" ,"value": "moduleconfig"}],
+        "value":"appconfig",
         "binding": {
           "type": "camunda:property",
-          "name": "messageId"
+          "name": "MESSAGE_ID"
+        }
+      },
+      {
+        "label": "Message Name",
+        "type": "Text",
+        "description": "Set Message Name",
+        "value":"{{COMPONENT}}:INBOUND:{{PARTNER_ID}}:{{ENDPOINT_ID}}:{{MESSAGE_ID}}",
+        "binding": {
+          "type": "camunda:property",
+          "name": "MESSAGE_NAME"
         }
       }
     ]

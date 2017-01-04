@@ -1,7 +1,7 @@
 [
   {
-    "name": "Message Type (File)",
-    "id": "com.camunda.example.MessageTypeFileStartEvent",
+    "name": "Message File",
+    "id": "com.camunda.example.MessageFileStartEvent",
     "appliesTo": [
       "bpmn:StartEvent",
       "bpmn:EndEvent"
@@ -10,10 +10,10 @@
       {
         "label": "Component Type",
         "type": "Hidden",
-        "value": "file://",
+        "value": "file",
         "binding": {
           "type": "camunda:property",
-          "name": "componentType"
+          "name": "COMPONENT"
         }
       },
       {
@@ -22,7 +22,7 @@
         "description": "Set URI",
         "binding": {
           "type": "camunda:property",
-          "name": "uri"
+          "name": "URI_ID"
         }
       }
     ]

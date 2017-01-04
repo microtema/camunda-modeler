@@ -1,0 +1,24 @@
+[
+  {
+    "name": "Datahub Process",
+    "id": "com.camunda.example.DatahubProcess",
+    "appliesTo": [
+      "bpmn:ServiceTask"
+    ],
+    "properties": [
+      {
+        "label": "Set Datahub Process Name",
+        "type": "Dropdown",
+        "description": "Set Datahub Process Name",
+        "choices":[
+          {"name": "Validates the OAGIS ProcessPurchaseOrder document in the incoming message" ,"value": "VALIDATE_OAGIS_PPO"},
+          {"name": "Clean up sql log entries older than given retention time" ,"value": "CLEANUP_SQL_LOG"}],
+        "value":"CLEANUP_SQL_LOG",
+        "binding": {
+          "type": "camunda:property",
+          "name": "PROCESS_NAME"
+        }
+      }
+    ]
+  }
+]
