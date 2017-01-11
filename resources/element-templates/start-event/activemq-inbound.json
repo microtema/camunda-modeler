@@ -3,8 +3,7 @@
     "name": "Message Queue",
     "id": "com.camunda.example.MessageTypeStartActiveMQEvent",
     "appliesTo": [
-      "bpmn:StartEvent",
-      "bpmn:EndEvent"
+      "bpmn:StartEvent"
     ],
     "properties": [
       {
@@ -20,8 +19,13 @@
         "label": "Partner ID",
         "type": "Dropdown",
         "description": "Set Partner ID",
-        "choices":[{"name": "SELF" ,"value": "SELF"}],
-        "value":"SELF",
+        "choices": [
+          {
+            "name": "SELF",
+            "value": "SELF"
+          }
+        ],
+        "value": "SELF",
         "binding": {
           "type": "camunda:property",
           "name": "PARTNER_ID"
@@ -31,8 +35,13 @@
         "label": "Endpoint ID",
         "type": "Dropdown",
         "description": "Set Endpoint ID",
-        "choices":[{"name": "HULK-TDH" ,"value": "HULK-TDH"}],
-        "value":"HULK-TDH",
+        "choices": [
+          {
+            "name": "HULK-TDH",
+            "value": "HULK-TDH"
+          }
+        ],
+        "value": "HULK-TDH",
         "binding": {
           "type": "camunda:property",
           "name": "ENDPOINT_ID"
@@ -42,8 +51,17 @@
         "label": "Message ID",
         "type": "Dropdown",
         "description": "Set Message ID",
-        "choices":[{"name": "appconfig" ,"value": "appconfig"},{"name": "moduleconfig" ,"value": "moduleconfig"}],
-        "value":"appconfig",
+        "choices": [
+          {
+            "name": "appconfig",
+            "value": "appconfig"
+          },
+          {
+            "name": "moduleconfig",
+            "value": "moduleconfig"
+          }
+        ],
+        "value": "appconfig",
         "binding": {
           "type": "camunda:property",
           "name": "MESSAGE_ID"
@@ -53,7 +71,7 @@
         "label": "Message Name",
         "type": "Text",
         "description": "Set Message Name",
-        "value":"{{COMPONENT}}:INBOUND:{{PARTNER_ID}}:{{ENDPOINT_ID}}:{{MESSAGE_ID}}",
+        "value": "{{COMPONENT}}:INBOUND:{{PARTNER_ID}}:{{ENDPOINT_ID}}:{{MESSAGE_ID}}",
         "binding": {
           "type": "camunda:property",
           "name": "MESSAGE_NAME"

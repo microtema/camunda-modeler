@@ -1,0 +1,110 @@
+[
+  {
+    "name": "Message Queue",
+    "id": "com.camunda.example.MessageTypeEndActiveMQEvent",
+    "appliesTo": [
+      "bpmn:EndEvent"
+    ],
+    "properties": [
+      {
+        "label": "Component Type",
+        "type": "Hidden",
+        "value": "activemq:",
+        "binding": {
+          "type": "camunda:property",
+          "name": "COMPONENT"
+        }
+      },
+      {
+        "label": "Partner ID",
+        "type": "Dropdown",
+        "description": "Set Partner ID",
+        "choices": [
+          {
+            "name": "SELF",
+            "value": "SELF"
+          }
+        ],
+        "value": "SELF",
+        "binding": {
+          "type": "camunda:property",
+          "name": "PARTNER_ID"
+        }
+      },
+      {
+        "label": "Endpoint ID",
+        "type": "Dropdown",
+        "description": "Set Endpoint ID",
+        "choices": [
+          {
+            "name": "HULK-TDH",
+            "value": "HULK-TDH"
+          }
+        ],
+        "value": "HULK-TDH",
+        "binding": {
+          "type": "camunda:property",
+          "name": "ENDPOINT_ID"
+        }
+      },
+      {
+        "label": "Message ID",
+        "type": "Dropdown",
+        "description": "Set Message ID",
+        "choices": [
+          {
+            "name": "appconfig",
+            "value": "appconfig"
+          },
+          {
+            "name": "moduleconfig",
+            "value": "moduleconfig"
+          }
+        ],
+        "value": "appconfig",
+        "binding": {
+          "type": "camunda:property",
+          "name": "MESSAGE_ID"
+        }
+      },
+      {
+        "label": "Message Name",
+        "type": "Text",
+        "description": "Set Message Name",
+        "value": "{{COMPONENT}}:OUTBOUND:{{PARTNER_ID}}:{{ENDPOINT_ID}}:{{MESSAGE_ID}}",
+        "binding": {
+          "type": "camunda:property",
+          "name": "MESSAGE_NAME"
+        }
+      },
+      {
+        "label": "Closure Condition",
+        "type": "Dropdown",
+        "choices": [
+          {
+            "name": "Do not Wait",
+            "value": "MSG_SENT"
+          },
+          {
+            "name": "Wait for Functional Ack",
+            "value": "FUNC_ACK_RECEIVED"
+          },
+          {
+            "name": "Wait for Status",
+            "value": "STATUS_RECEIVED"
+          },
+          {
+            "name": "Wait for Technical Ack",
+            "value": "TECH_ACK_RECEIVED"
+          }
+        ],
+        "description": "Defines the transaction event that causes the closure of the boundary for the particular route leg",
+        "value": "MSG_SENT",
+        "binding": {
+          "type": "camunda:property",
+          "name": "CLOSURE_CONDITION"
+        }
+      }
+    ]
+  }
+]
